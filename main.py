@@ -4,6 +4,7 @@ translator = Translator(service_urls=['translate.googleapis.com'])
 import os
 # koneksi database
 import pymysql 
+from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 # app.config['MYSQL_HOST'] = 'sql6.freemysqlhosting.net'
 # app.config['MYSQL_USER'] = 'sql6513279'
