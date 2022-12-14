@@ -8,7 +8,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return jsonify({"HIDAYATULLAH": "Welcome to your Flask app 🚅"})
+    aa = "Saya"
+    ada = translator.translate(aa, dest='en')
+    answer= ada.text
+    return answer
 
 
 if __name__ == '__main__':
