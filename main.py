@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request
 from googletrans import Translator
 translator = Translator(service_urls=['translate.googleapis.com'])
 import os
-
+app = Flask(__name__)
 # route api
 @app.route('/')
 def index():
