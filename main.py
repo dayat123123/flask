@@ -3,8 +3,7 @@ from googletrans import Translator
 translator = Translator(service_urls=['translate.googleapis.com'])
 import os
 # koneksi database
-import mysql.connector
-from flask_pymysql import MySQL
+import pymysql
 # app = Flask(__name__)
 # app.config['MYSQL_HOST'] = 'sql6.freemysqlhosting.net'
 # app.config['MYSQL_USER'] = 'sql6513279'
