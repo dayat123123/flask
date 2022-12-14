@@ -5,12 +5,12 @@ import os
 # koneksi database
 import mysql.connector
 from flask_pymysql import MySQL
-app = Flask(__name__)
-app.config['MYSQL_HOST'] = 'sql6.freemysqlhosting.net'
-app.config['MYSQL_USER'] = 'sql6513279'
-app.config['MYSQL_PASSWORD'] = '71TDCiXpb4'
-app.config['MYSQL_DB'] = 'sql6513279'
-mysql = MySQL(app)
+# app = Flask(__name__)
+# app.config['MYSQL_HOST'] = 'sql6.freemysqlhosting.net'
+# app.config['MYSQL_USER'] = 'sql6513279'
+# app.config['MYSQL_PASSWORD'] = '71TDCiXpb4'
+# app.config['MYSQL_DB'] = 'sql6513279'
+# mysql = MySQL(app)
 # batas koneksi database
 
 # route api
