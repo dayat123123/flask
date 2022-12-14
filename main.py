@@ -2,9 +2,13 @@ from flask import Flask, jsonify, request
 from googletrans import Translator
 translator = Translator(service_urls=['translate.googleapis.com'])
 import os
-
+import mysql.connector
 app = Flask(__name__)
-
+app.config['MYSQL_HOST'] = 'sql6.freemysqlhosting.net'
+app.config['MYSQL_USER'] = 'sql6513279'
+app.config['MYSQL_PASSWORD'] = '71TDCiXpb4'
+app.config['MYSQL_DB'] = 'sql6513279'
+mysql = MySQL(app)
 
 @app.route('/')
 def index():
