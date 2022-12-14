@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+from googletrans import Translator
 import os
 
 app = Flask(__name__)
