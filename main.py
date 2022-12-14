@@ -11,7 +11,7 @@ def index():
     aa = "Saya sangat senang karena program saya berjalan, Alhamdulillah ya Allah"
     ada = translator.translate(aa, dest='en')
     answer= ada.text
-    return answer
+    return jsonnify(answer)
 
 
 if __name__ == '__main__':
