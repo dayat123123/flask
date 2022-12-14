@@ -13,6 +13,16 @@ def index():
     answer= ada.text
     return answer
 
+@app.route('/api', methods = ['GET'])
+def returnvalue():
+    global hasilbanjar
+    d = {}
+    inputchr = str(request.args['query'])
+    hasilbanjar = translator.translate(inputchr, dest='en')
+    answer = hasilbanjar.text
+    d['output'] = answer
+    return d
+
 
 if __name__ == '__main__':
     app.run()
