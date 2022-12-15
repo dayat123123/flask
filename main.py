@@ -66,6 +66,19 @@ def returnvalue():
     answer = hasilbanjar.text
     d['output'] = answer
     return d
+ 
+@app.route('/api2', methods = ['GET'])
+def returnvalue2():
+    global banjarindo
+    d = {}
+    inputchr = str(request.args['query'])
+    conn = connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT kata_dasar FROM tb_katadasar2 where kata_daerah = %s", [inputchr])
+    banjarindo = cursor.fetchone()[0]
+    ada = translator.translate(aa, dest='en')
+    answer= banjarindo
+    return answer
 
 # tutup route api
 
