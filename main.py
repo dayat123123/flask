@@ -7,7 +7,7 @@ import os
 import pymysql 
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import func
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///tb_kosakata2.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://sql6513279:71TDCiXpb4@sql6.freemysqlhosting.net/sql6513279'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
