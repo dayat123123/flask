@@ -18,7 +18,7 @@ def connection():
   host='sql6.freemysqlhosting.net'
   user='sql6513279'
   password='71TDCiXpb4'
-  database='sql6513279',
+  database='sql6513279'
   conn = pymysql.connect(host=host, user=user, password=password, database=database)
   return conn
 
