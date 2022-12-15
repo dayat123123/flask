@@ -5,11 +5,12 @@ import os
 
 # koneksi database
 import pymysql 
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.sql import func
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:AOIo6SOBjx83a5ly13Pn@containers-us-west-180.railway.app:7485/railway'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+from flask_pymysql import MySQL
+# from flask_sqlalchemy import SQLAlchemy
+# from sqlalchemy.sql import func
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:AOIo6SOBjx83a5ly13Pn@containers-us-west-180.railway.app:7485/railway'
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# db = SQLAlchemy(app)
 
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://sql6513279:71TDCiXpb4@sql6.freemysqlhosting.net/sql6513279'
 # db = SQLAlchemy(app)
