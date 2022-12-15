@@ -47,10 +47,14 @@ app = Flask(__name__)
 # route api
 @app.route('/')
 def index():
+    global banjarindo
+    aa = "ulun"
     conn = connection()
-    aa = "Saya sangat senang karena program saya berjalan, Alhamdulillah ya Allah"
+    cursor = conn.cursor()
+    cursor.execute("SELECT kata_dasar FROM tb_katadasar2 where kata_daerah = %s", [aa])
+    banjarindo = cursor.fetchone()[0]
     ada = translator.translate(aa, dest='en')
-    answer= ada.text
+    answer= banjarindo
     return answer
 
 @app.route('/api', methods = ['GET'])
