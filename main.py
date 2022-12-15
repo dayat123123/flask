@@ -5,6 +5,10 @@ import os
 # koneksi database
 import pymysql 
 from flask_sqlalchemy import SQLAlchemy
+
+# koneksi db
+db = pymysql.connect("sql6.freemysqlhosting.net", "sql6513279", "71TDCiXpb4", "sql6513279")
+# batas
 app = Flask(__name__)
 # app.config['MYSQL_HOST'] = 'sql6.freemysqlhosting.net'
 # app.config['MYSQL_USER'] = 'sql6513279'
@@ -12,7 +16,7 @@ app = Flask(__name__)
 # app.config['MYSQL_DB'] = 'sql6513279'
 # mysql = MySQL(app)
 # batas koneksi database
-
+api = Api(app)
 # route api
 @app.route('/')
 def index():
