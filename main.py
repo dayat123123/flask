@@ -7,10 +7,29 @@ import pymysql
 from flask_sqlalchemy import SQLAlchemy
 
 # koneksi db
-db = pymysql.connect("sql6.freemysqlhosting.net", "sql6513279", "71TDCiXpb4", "sql6513279")
+# db = pymysql.connect("sql6.freemysqlhosting.net", "sql6513279", "71TDCiXpb4", "sql6513279")
 # batas
+
+import pymysql as MySQLdb
+
+# Open database connection
+db = MySQLdb.connect("sql6.freemysqlhosting.net","sql6513279","71TDCiXpb","sql6513279" )
+
+# prepare a cursor object using cursor() method
+cursor = db.cursor()
+
+# execute SQL query using execute() method.
+cursor.execute("show tables")
+
+# Fetch a single row using fetchone() method.
+data = cursor.fetchall()
+print (data)
+
+# disconnect from server
+db.close()
+
 app = Flask(__name__)
-api = pymysql(app)
+
 # app.config['MYSQL_HOST'] = 'sql6.freemysqlhosting.net'
 # app.config['MYSQL_USER'] = 'sql6513279'
 # app.config['MYSQL_PASSWORD'] = '71TDCiXpb4'
