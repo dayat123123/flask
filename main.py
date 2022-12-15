@@ -9,11 +9,18 @@ from flask_pymysql import MySQL
 import pymysql.cursors
 
 # Connect to the database
-connection = pymysql.connect(host='sql6.freemysqlhosting.net',
-                             user='sql6513279',
-                             password='71TDCiXpb4',
-                             database='sql6513279',
-                             cursorclass=pymysql.cursors.DictCursor)
+# connection = pymysql.connect(host='sql6.freemysqlhosting.net',
+#                              user='sql6513279',
+#                              password='71TDCiXpb4',
+#                              database='sql6513279',
+#                              cursorclass=pymysql.cursors.DictCursor)
+def connection():
+  host='sql6.freemysqlhosting.net'
+  user='sql6513279'
+  password='71TDCiXpb4'
+  database='sql6513279',
+  conn = pymysql.connect(host=host, user=user, password=password, database=database)
+  return conn
 
 # from flask_sqlalchemy import SQLAlchemy
 # from sqlalchemy.sql import func
@@ -40,6 +47,7 @@ app = Flask(__name__)
 # route api
 @app.route('/')
 def index():
+    conn = connection()
     aa = "Saya sangat senang karena program saya berjalan, Alhamdulillah ya Allah"
     ada = translator.translate(aa, dest='en')
     answer= ada.text
