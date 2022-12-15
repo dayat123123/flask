@@ -2,9 +2,15 @@ from flask import Flask, jsonify, request, g
 from googletrans import Translator
 translator = Translator(service_urls=['translate.googleapis.com'])
 import os
+
 # koneksi database
 import pymysql 
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.sql import func
+# from flask.ext.sqlalchemy import SQLAlchemy
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://sql6513279:71TDCiXpb4@sql6.freemysqlhosting.net/sql6513279'
+db = SQLAlchemy(app)
 
 # koneksi db
 # db = pymysql.connect("sql6.freemysqlhosting.net", "sql6513279", "71TDCiXpb4", "sql6513279")
