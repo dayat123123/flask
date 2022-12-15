@@ -9,3 +9,4 @@ mysql-connector-python==8.0.29
 googletrans==3.1.0a0
 PyMySQL==1.0.2 
 flask-sqlalchemy
+Flask-pymysql==0.2.3
