@@ -3,7 +3,7 @@ from googletrans import Translator
 translator = Translator(service_urls=['translate.googleapis.com'])
 import os
 # koneksi database
-import pymysql 
+# import pymysql 
 from flask_sqlalchemy import SQLAlchemy
 
 # koneksi db
