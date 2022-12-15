@@ -6,13 +6,15 @@ import os
 # koneksi database
 import pymysql 
 from flask_pymysql import MySQL
-pymysql_connect_kwargs = {'user': 'sql6513279',
-                          'password': '71TDCiXpb4',
-                          'host': 'sql6.freemysqlhosting.net', 
-                         'database': 'sql6513279'}
+import pymysql.cursors
 
-app.config['pymysql_kwargs'] = pymysql_connect_kwargs
-mysql = MySQL(app)
+# Connect to the database
+connection = pymysql.connect(host='sql6.freemysqlhosting.net',
+                             user='sql6513279',
+                             password='71TDCiXpb4',
+                             database='sql6513279',
+                             cursorclass=pymysql.cursors.DictCursor)
+
 # from flask_sqlalchemy import SQLAlchemy
 # from sqlalchemy.sql import func
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:AOIo6SOBjx83a5ly13Pn@containers-us-west-180.railway.app:7485/railway'
