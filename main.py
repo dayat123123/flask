@@ -69,15 +69,14 @@ def returnvalue():
  
 @app.route('/api2', methods = ['GET'])
 def returnvalue2():
-    global banjarindo
+    global indo
     d = {}
     inputchr = str(request.args['query'])
     conn = connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT kata_dasar FROM tb_katadasar2 where kata_daerah = %s", [inputchr])
-    banjarindo = cursor.fetchone()[0]
-    ada = translator.translate(aa, dest='en')
-    answer= banjarindo
+    cursor.execute("SELECT kata_daerah FROM tb_katadasar2 where kata_dasar = %s", [inputchr])
+    indo = cursor.fetchone()[0]
+    answer= indo
     return answer
 
 # tutup route api
