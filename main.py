@@ -87,7 +87,7 @@ def returnvalue3():
     conn = connection()
     cursor = conn.cursor()
     row_count = cur.execute("SELECT kata_dasar FROM tb_katadasar2 where kata_daerah = %s", [inputchr])
-    connection.commit()
+    conn.connection.commit()
     if row_count > 0:
         banjarindo=cur.fetchone()[0]
         answer = banjarindo
