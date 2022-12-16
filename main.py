@@ -15,14 +15,14 @@ import pymysql.cursors
 #                              database='sql6513279',
 #                              cursorclass=pymysql.cursors.DictCursor)
 # def connection():
-#host='sql6.freemysqlhosting.net'
-host= 'dns3.simplecplogin.com'
-#user='sql6513279'
-user = 'slkbank_umhukum'
-#password='71TDCiXpb4'
-password ='mhaQ?bA9Jhk4'
-#database='sql6513279'
-database = 'slkbank_hukum'
+host='sql6.freemysqlhosting.net'
+#host= 'dns3.simplecplogin.com'
+user='sql6513279'
+#user = 'slkbank_umhukum'
+password='71TDCiXpb4'
+#password ='mhaQ?bA9Jhk4'
+database='sql6513279'
+#database = 'slkbank_hukum'
 conn = pymysql.connect(host=host, user=user, password=password, database=database)
 #   return conn
 
