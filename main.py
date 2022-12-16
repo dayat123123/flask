@@ -78,55 +78,28 @@ def returnvalue2():
     d['output'] = answer
     return d
   
-#   api 3
-# @app.route('/api3', methods = ['GET'])
-# def returnvalue3():
-# #     global banjarindo
-# #     d = {}
-# #     inputchr = str(request.args['query'])
-# #     conn = connection()
-# #     cursor = conn.cursor()
-# #     row_count = cur.execute("SELECT kata_dasar FROM tb_katadasar2 where kata_daerah = %s", [inputchr])
-# #     conn.connection.commit()
-# #     if row_count > 0:
-# #         banjarindo=cur.fetchone()[0]
-# #         answer = banjarindo
-# #         d['output'] = answer
-# #         return d
-# #     else:
-# #         hasil = "Kata belum tersedia"
-# #         d['output'] = hasil
-# #         return d
-#       global banj
-#       conn2 = pymysql.connect(host='sql6.freemysqlhosting.net', user='sql6513279', password='71TDCiXpb4', database='sql6513279')
-#       cursor2 = conn2.cursor()
-#       my_list = []
-#       d= {}
-#       string = str(request.args['query'])
-#       list_string = string.split()
-#       n = len(list_string)
-# #       for i in range(n):
-# #           try:
-# #             cursor.execute("SELECT kata_dasar FROM tb_katadasar2 where kata_daerah = %s", [list_string[i]])
-# #             banj=cur.fetchone()[0]
-# #             answer = banj
-# #             my_list.append(answer)
-# #           except:
-# #             my_list.append(list_string[i])
-# #       d['output'] = ' '.join(my_list)
-# #       return d
-#         for i in range(n):
-#         row_count = cursor2.execute("SELECT kata_dasar FROM tb_katadasar2 where kata_daerah = %s", [list_string[i]])
-#         conn2.commit()
-#         if row_count > 0:
-#             banj=cursor2.fetchone()[0]
-#             answer = banj
-#             my_list.append(answer)
-#         else:
-#             my_list.append(list_string[i])
+  api 3
+@app.route('/api3', methods = ['GET'])
+def returnvalue3():
+    global banj
+    cursor = conn.cursor()
+    my_list = []
+    d= {}
+    string = str(request.args['query'])
+    list_string = string.split()
+    n = len(list_string)
+    for i in range(n):
+        row_count = cursor.execute("SELECT kata_dasar FROM tb_katadasar2 where kata_daerah = %s", [list_string[i]])
+        conn.commit()
+        if row_count > 0:
+            banj=cursor.fetchone()[0]
+            answer = banj
+            my_list.append(answer)
+        else:
+            my_list.append(list_string[i])
 
-#     d['output'] = ' '.join(my_list)
-#     return d
+    d['output'] = ' '.join(my_list)
+    return d
   
 #   batas api yang dipakai
 # @app.route('/api22', methods = ['GET'])
