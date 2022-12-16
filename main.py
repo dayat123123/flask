@@ -85,8 +85,8 @@ def returnvalue3():
     cursor = conn.cursor()
     my_list = []
     d= {}
-#     string = str(request.args['query'])
-    string = "ulun tulak aja"
+    string = str(request.args['query'])
+#     string = "ulun tulak aja"
     list_string = string.split()
     n = len(list_string)
     for i in range(n):
