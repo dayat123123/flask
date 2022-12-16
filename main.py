@@ -19,7 +19,7 @@ def connection():
   user='sql6513279'
   password='71TDCiXpb4'
   database='sql6513279'
-  conn = pymysql.connect(host=host, user=user, password=password, database=database)
+  conn = pymysql.connect(host=host, user=user, password=password, database=database, autocommit=True)
   return conn
 
 # from flask_sqlalchemy import SQLAlchemy
@@ -105,16 +105,27 @@ def returnvalue3():
       string = str(request.args['query'])
       list_string = string.split()
       n = len(list_string)
-      for i in range(n):
-          try:
-            cursor.execute("SELECT kata_dasar FROM tb_katadasar2 where kata_daerah = %s", [list_string[i]])
-            banj=cur.fetchone()[0]
+#       for i in range(n):
+#           try:
+#             cursor.execute("SELECT kata_dasar FROM tb_katadasar2 where kata_daerah = %s", [list_string[i]])
+#             banj=cur.fetchone()[0]
+#             answer = banj
+#             my_list.append(answer)
+#           except:
+#             my_list.append(list_string[i])
+#       d['output'] = ' '.join(my_list)
+#       return d
+        for i in range(n):
+        row_count = cursor.execute("SELECT kata_dasar FROM tb_katadasar2 where kata_daerah = %s", [list_string[i]])
+        if row_count > 0:
+            banj=cursor.fetchone()[0]
             answer = banj
             my_list.append(answer)
-          except:
+        else:
             my_list.append(list_string[i])
-      d['output'] = ' '.join(my_list)
-      return d
+
+    d['output'] = ' '.join(my_list)
+    return d
   
 #   batas api yang dipakai
 # @app.route('/api22', methods = ['GET'])
