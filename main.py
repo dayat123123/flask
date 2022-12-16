@@ -78,7 +78,7 @@ def returnvalue2():
     d['output'] = answer
     return d
   
-  api 3
+#   api 3
 @app.route('/api3', methods = ['GET'])
 def returnvalue3():
     global banj
