@@ -98,8 +98,8 @@ def returnvalue3():
 #         d['output'] = hasil
 #         return d
       global banj
-      conn = pymysql.connect(host='sql6.freemysqlhosting.net', user='sql6513279', password='71TDCiXpb4', database='sql6513279')
-      cursor = conn.cursor()
+      conn2 = pymysql.connect(host='sql6.freemysqlhosting.net', user='sql6513279', password='71TDCiXpb4', database='sql6513279')
+      cursor2 = conn2.cursor()
       my_list = []
       d= {}
       string = str(request.args['query'])
@@ -116,10 +116,10 @@ def returnvalue3():
 #       d['output'] = ' '.join(my_list)
 #       return d
         for i in range(n):
-        row_count = cursor.execute("SELECT kata_dasar FROM tb_katadasar2 where kata_daerah = %s", [list_string[i]])
-        conn.commit()
+        row_count = cursor2.execute("SELECT kata_dasar FROM tb_katadasar2 where kata_daerah = %s", [list_string[i]])
+        conn2.commit()
         if row_count > 0:
-            banj=cursor.fetchone()[0]
+            banj=cursor2.fetchone()[0]
             answer = banj
             my_list.append(answer)
         else:
