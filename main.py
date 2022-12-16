@@ -56,28 +56,69 @@ def index():
     ada = translator.translate(aa, dest='en')
     answer= banjarindo
     return answer
-
-@app.route('/api', methods = ['GET'])
-def returnvalue():
-    global hasilbanjar
+# api 1 
+@app.route('/api1', methods = ['GET'])
+def returnvalue1():
+    global indoinggris
     d = {}
     inputchr = str(request.args['query'])
-    hasilbanjar = translator.translate(inputchr, dest='en')
-    answer = hasilbanjar.text
+    indoinggris = translator.translate(inputchr, dest='en')
+    answer = indoinggris.text
     d['output'] = answer
     return d
- 
+  
+#   api 2
 @app.route('/api2', methods = ['GET'])
 def returnvalue2():
-    global indo
+    global inggrisindo
+    d = {}
+    inputchr = str(request.args['query'])
+    inggrisindo = translator.translate(inputchr, dest='id')
+    answer = inggrisindo.text
+    d['output'] = answer
+    return d
+  
+#   api 3
+@app.route('/api3', methods = ['GET'])
+def returnvalue3():
+    global banjarindo
     d = {}
     inputchr = str(request.args['query'])
     conn = connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT kata_daerah FROM tb_katadasar2 where kata_dasar = %s", [inputchr])
-    indo = cursor.fetchone()[0]
-    answer= indo
-    return answer
+    row_count = cur.execute("SELECT kata_dasar FROM tb_katadasar2 where kata_daerah = %s", [inputchr])
+    if row_count > 0:
+        banjarindo=cur.fetchone()[0]
+        answer = banjarindo
+        d['output'] = answer
+        return d
+    else:
+        hasil = "Kata belum tersedia"
+        d['output'] = hasil
+        return d
+  
+#   batas api yang dipakai
+# @app.route('/api22', methods = ['GET'])
+# def returnvalue22():
+#     global hasilbanjar
+#     d = {}
+#     inputchr = str(request.args['query'])
+#     hasilbanjar = translator.translate(inputchr, dest='en')
+#     answer = hasilbanjar.text
+#     d['output'] = answer
+#     return d
+ 
+# @app.route('/api23', methods = ['GET'])
+# def returnvalue23():
+#     global indo
+#     d = {}
+#     inputchr = str(request.args['query'])
+#     conn = connection()
+#     cursor = conn.cursor()
+#     cursor.execute("SELECT kata_daerah FROM tb_katadasar2 where kata_dasar = %s", [inputchr])
+#     indo = cursor.fetchone()[0]
+#     answer= indo
+#     return answer
 
 # tutup route api
 
