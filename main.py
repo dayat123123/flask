@@ -15,11 +15,11 @@ import pymysql.cursors
 #                              database='sql6513279',
 #                              cursorclass=pymysql.cursors.DictCursor)
 # def connection():
-  host='sql6.freemysqlhosting.net'
-  user='sql6513279'
-  password='71TDCiXpb4'
-  database='sql6513279'
-  conn = pymysql.connect(host=host, user=user, password=password, database=database)
+host='sql6.freemysqlhosting.net'
+user='sql6513279'
+password='71TDCiXpb4'
+database='sql6513279'
+conn = pymysql.connect(host=host, user=user, password=password, database=database)
 #   return conn
 
 # from flask_sqlalchemy import SQLAlchemy
