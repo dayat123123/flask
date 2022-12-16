@@ -107,8 +107,8 @@ def returnvalue3():
       list_string = string.split()
       n = len(list_string)
       for i in range(n):
+          cur.execute("SELECT kata_dasar FROM tb_katadasar2 where kata_daerah = %s", [list_string[i]])
           try:
-            cur.execute("SELECT kata_dasar FROM tb_katadasar2 where kata_daerah = %s", [list_string[i]])
             banj=cur.fetchone()[0]
             answer = banj
             my_list.append(answer)
