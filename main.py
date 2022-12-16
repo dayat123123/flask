@@ -19,7 +19,7 @@ def connection():
   user='sql6513279'
   password='71TDCiXpb4'
   database='sql6513279'
-  conn = pymysql.connect(host=host, user=user, password=password, database=database, autocommit=True)
+  conn = pymysql.connect(host=host, user=user, password=password, database=database)
   return conn
 
 # from flask_sqlalchemy import SQLAlchemy
@@ -98,7 +98,7 @@ def returnvalue3():
 #         d['output'] = hasil
 #         return d
       global banj
-      conn = pymysql.connect(host='sql6.freemysqlhosting.net', user='sql6513279', password='71TDCiXpb4', database='sql6513279', autocommit=True)
+      conn = pymysql.connect(host='sql6.freemysqlhosting.net', user='sql6513279', password='71TDCiXpb4', database='sql6513279')
       cursor = conn.cursor()
       my_list = []
       d= {}
