@@ -14,13 +14,13 @@ import pymysql.cursors
 #                              password='71TDCiXpb4',
 #                              database='sql6513279',
 #                              cursorclass=pymysql.cursors.DictCursor)
-def connection():
+# def connection():
   host='sql6.freemysqlhosting.net'
   user='sql6513279'
   password='71TDCiXpb4'
   database='sql6513279'
   conn = pymysql.connect(host=host, user=user, password=password, database=database)
-  return conn
+#   return conn
 
 # from flask_sqlalchemy import SQLAlchemy
 # from sqlalchemy.sql import func
@@ -49,7 +49,7 @@ app = Flask(__name__)
 def index():
     global banjarindo
     aa = "ulun"
-    conn = connection()
+#     conn = connection()
     cursor = conn.cursor()
     cursor.execute("SELECT kata_dasar FROM tb_katadasar2 where kata_daerah = %s", [aa])
     banjarindo = cursor.fetchone()[0]
