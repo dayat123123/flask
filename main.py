@@ -98,7 +98,7 @@ def returnvalue3():
 #         d['output'] = hasil
 #         return d
       global banj
-      conn = connection()
+      conn = pymysql.connect(host='sql6.freemysqlhosting.net', user='sql6513279', password='71TDCiXpb4', database='sql6513279', autocommit=True)
       cursor = conn.cursor()
       my_list = []
       d= {}
@@ -117,6 +117,7 @@ def returnvalue3():
 #       return d
         for i in range(n):
         row_count = cursor.execute("SELECT kata_dasar FROM tb_katadasar2 where kata_daerah = %s", [list_string[i]])
+        conn.commit()
         if row_count > 0:
             banj=cursor.fetchone()[0]
             answer = banj
