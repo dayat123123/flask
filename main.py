@@ -18,7 +18,7 @@ import pymysql.cursors
 #host='sql6.freemysqlhosting.net'
 host= 'dns3.simplecplogin.com'
 #user='sql6513279'
-host = 'slkbank_umhukum'
+user = 'slkbank_umhukum'
 #password='71TDCiXpb4'
 password ='mhaQ?bA9Jhk4'
 #database='sql6513279'
