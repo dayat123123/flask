@@ -53,7 +53,7 @@ app = Flask(__name__)
 def index():
     global banjarindo
     aa = "ulun"
-#     conn = connection()
+    conn = connection()
     cursor = conn.cursor()
     cursor.execute("SELECT kata_dasar FROM tb_katadasar2 where kata_daerah = %s", [aa])
     banjarindo = cursor.fetchone()[0]
@@ -108,84 +108,87 @@ def returnvalue3():
     return d
   
 # api 4
-# @app.route('/api4', methods = ['GET'])
-# def returnvalue4():
-#     global indobanjar
-#     new_string = {}
-#     cursor = conn.cursor()
-#     my_list = []
-#     d= {}
-#     string = str(request.args['query'])
-#     list_string = string.split()
-#     n = len(list_string)
-#     for i in range(n):
-#         row_count = cursor.execute("SELECT kata_daerah FROM tb_katadasar2 where kata_dasar = %s", [list_string[i]])
-#         conn.commit()
-#         if row_count > 0:
-#             indobanjar = cursor.fetchone()[0]
-#             answer = indobanjar
-#             my_list.append(answer)
-#         else:
-#             my_list.append(list_string[i])
+@app.route('/api4', methods = ['GET'])
+def returnvalue4():
+    global indobanjar
+    new_string = {}
+    conn = connection()
+    cursor = conn.cursor()
+    my_list = []
+    d= {}
+    string = str(request.args['query'])
+    list_string = string.split()
+    n = len(list_string)
+    for i in range(n):
+        row_count = cursor.execute("SELECT kata_daerah FROM tb_katadasar2 where kata_dasar = %s", [list_string[i]])
+        conn.commit()
+        if row_count > 0:
+            indobanjar = cursor.fetchone()[0]
+            answer = indobanjar
+            my_list.append(answer)
+        else:
+            my_list.append(list_string[i])
 
-#     d['output'] = ' '.join(my_list)
-#     return d
+    d['output'] = ' '.join(my_list)
+    return d
 # batas api 4
 
 # api 5
-# @app.route('/api5', methods = ['GET'])
-# def returnvalue5():
-#     global inggrisbanjar
-#     new_string = {}
-#     my_list = []
-#     cursor = conn.cursor()
-#     d= {}
-#     string = str(request.args['query'])
-#     inggrisbanjar = translator.translate(string, dest='id')
-#     answer = inggrisbanjar.text
-#     list_string = answer.split()
-#     n = len(list_string)
-#     for i in range(n):
-#         row_count = cursor.execute("SELECT kata_daerah FROM tb_katadasar2 where kata_dasar = %s", [list_string[i]])
-#         conn.commit()
-#         if row_count > 0:
-#             inggrisbanjar=cursor.fetchone()[0]
-#             answer = inggrisbanjar
-#             my_list.append(answer)
-#         else:
-#             my_list.append(list_string[i])
+@app.route('/api5', methods = ['GET'])
+def returnvalue5():
+    global inggrisbanjar
+    new_string = {}
+    my_list = []
+    conn = connection()
+    cursor = conn.cursor()
+    d= {}
+    string = str(request.args['query'])
+    inggrisbanjar = translator.translate(string, dest='id')
+    answer = inggrisbanjar.text
+    list_string = answer.split()
+    n = len(list_string)
+    for i in range(n):
+        row_count = cursor.execute("SELECT kata_daerah FROM tb_katadasar2 where kata_dasar = %s", [list_string[i]])
+        conn.commit()
+        if row_count > 0:
+            inggrisbanjar=cursor.fetchone()[0]
+            answer = inggrisbanjar
+            my_list.append(answer)
+        else:
+            my_list.append(list_string[i])
 
-#     d['output'] = ' '.join(my_list)
-#     return d
+    d['output'] = ' '.join(my_list)
+    return d
 # batas api 5
 
 # api 6
-# @app.route('/api6', methods = ['GET'])
-# def returnvalue6():
-#     global banjaringgris
-#     global aa
-#     new_string = {}
-#     my_list = []
-#     cursor = conn.cursor()
-#     d= {}
-#     c={}
-#     string = str(request.args['query'])
-#     list_string = string.split()
-#     n = len(list_string)
-#     for i in range(n):
-#         row_count = cursor.execute("SELECT kata_dasar FROM tb_katadasar2 where kata_daerah = %s", [list_string[i]])
-#         conn.commit()
-#         if row_count > 0:
-#             aa=cursor.fetchone()[0]
-#             my_list.append(aa)
-#         else:
-#             my_list.append(list_string[i])
+@app.route('/api6', methods = ['GET'])
+def returnvalue6():
+    global banjaringgris
+    global aa
+    new_string = {}
+    my_list = []
+    conn = connection()
+    cursor = conn.cursor()
+    d= {}
+    c={}
+    string = str(request.args['query'])
+    list_string = string.split()
+    n = len(list_string)
+    for i in range(n):
+        row_count = cursor.execute("SELECT kata_dasar FROM tb_katadasar2 where kata_daerah = %s", [list_string[i]])
+        conn.commit()
+        if row_count > 0:
+            aa=cursor.fetchone()[0]
+            my_list.append(aa)
+        else:
+            my_list.append(list_string[i])
 
-#     # d['output'] = ' '.join(my_list)
-#     c = ' '.join(my_list)
-#     banjaringgris = translator.translate(c, dest='en')
-#     d['output'] = banjaringgris.text
-#     return d
+    # d['output'] = ' '.join(my_list)
+    c = ' '.join(my_list)
+    banjaringgris = translator.translate(c, dest='en')
+    d['output'] = banjaringgris.text
+    return d
 # batas api 6
 
 #   batas api yang dipakai
